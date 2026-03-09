@@ -1,6 +1,6 @@
 import os,shutil
 
-path="message/your_instagram_activity/messages/inbox"
+path="your_instagram_activity/messages/inbox"
 target="data"
 
 dirc=os.listdir(path)

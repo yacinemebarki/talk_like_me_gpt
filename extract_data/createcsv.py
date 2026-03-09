@@ -19,17 +19,17 @@ def extract(message_file,data_file):
         writer=csv.writer(f)
         
         if os.path.getsize(data_file)==0:
-            writer.writerow(["content"])
+            writer.writerow(["content","sender","time"])
             
         
         
-        a=[]
+        
         for m in message:
             
             if "content" not in m:
                 continue
-            a.append(m["content"])
-            writer.writerow([m["content"]])
+            
+            writer.writerow([m["content"],m["sender_name"],m["timestamp_ms"]])
             
             
 path="data"
@@ -37,7 +37,7 @@ target_file="data/message.csv"
 file=os.listdir("data")
 out=[]
 for f in file:
-    if f!="message.csv":
+    if f!="message.csv" and f!="train-00000-of-00001.csv":
         
         fpath=os.path.join(path,f)
         print(fpath)
